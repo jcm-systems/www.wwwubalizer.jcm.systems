@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The WWWubalizer</title>
+	</head>
+	<body>
+		<h1><a href="https://wwwubalizer.com">WWWubalizer</a></h1>
+		<h2>What's this then?</h2>
+		<p>The <a href="https://wwwubalizer.com">WWWubalizer</a> sends people who manually type in your apex (or "naked") domain over to your main website.</p>
+		<p>In other words, someone who types in <code>http://your-domain.com</code> will end up at <code>http://www.your-domain.com</code></p>
+		<h2>How can I use it?</h2>
+		<p>Just place a DNS "A" record at the apex of your domain, pointing at this IP address: <code>35.178.28.1</code></p>
+		<h2>That's it? I don't have to ask you to set it up for me, or anything?</h2>
+		<p>Yep. That's it.</p>
+		<h2>Why?</h2>
+		<p>Because it's annoying to have to set up something to do
+		this, with TLS, for each and every new site you launch!</p>
+		<p>The <a href="https://wwwubalizer.com">WWWubalizer</a> is a
+		domain-agnostic, permanent, static-IP-based service ...</p>
+		<p>... which works even when your more security-minded visitors type
+		in <code>https://your-domain.com</code>.</p>
+		<h2>What does the service actually do?</h2>
+		<p>A webserver:</p>
+		<ul>
+			<li><p>listens for requests, and ...</p></li>
+			<li><p>responds with an HTTP 301 permanent redirect ...</p></li>
+			<li><p>with the <code>Location</code> header set to the root of your <code>www</code> site ...</p></li>
+			<li><p>using the same scheme (HTTP/HTTPS) that the request used originally.</p></li>
+		</ul>
+		<p>Also, a valid TLS certificate is obtained, served and cached when an HTTPS request is received.<p>
+		<h2>What <strong>DOESN'T</strong> the service do?</h2>
+		<p>This service, under non-abuse conditions, is guaranteed <strong>NOT</strong> to:</p>
+		<ul>
+			<li><p>Serve anything other than an HTTP 301 redirect to "http(s)://www.{yourdomain}/"</p></li>
+		</ul>
+		<p>In all conditions, this service is guaranteed <strong>NOT</strong> to:</p>
+		<ul>
+			<li><p>Insert any response headers which will harm your domain's visitors</p></li>
+			<li><p>Set any cookies</p></li>
+			<li><p>Set any security related headers such as
+				<code>Content-Security-Policy</code> or
+				<code>Strict-Transport-Security</code></p></li>
+			<li><p>Serve, use, or expose any Javascript or other
+				code which your domain's visitors' browsers
+				might try to execute</p></li>
+			<li><p>Use any TLS certificates obtained for evil. Or
+				indeed for any purpose other than serving 301
+				redirects as described above</p></li>
+		</ul>
+		<h2>Is it secure?</h2>
+		<p>Yes, it's very secure. I would have thought the polished branding and documentation made it clear how serious this project is.</p>
+		<h2>Are you collecting my data or the data of my domain's users?</h2>
+		<p>Not if I can possibly help it. There's a list of what I <strong>do</strong> collect at the bottom of this page.</p>
+		<h2>How much does it cost?</h2>
+		<p>It's free. Point any domain you like at it, except those already starting with "<code>www.</code>"</p>
+		<h2>Can I rely on it always working, on the same IP?</h2>
+		<p>It's here until it isn't. I'm not currently planning on
+		stopping it from working at any point, and it doesn't have a
+		fixed lifetime.</p>
+		<p>I promise to give you a reasonable amount of warning if it's
+		going to disappear, so long as you let me know you're using it
+		by email at <code>contact+wwwubalizer *-at-* jpluscplusm.com</code>.</p>
+		<h2>Can I see it working?</h2>
+		<p>Sure: it's powering both
+		<a href="https://jpluscplusm.com">https://jpluscplusm.com</a>
+		and <a href="https://jcm.systems">https://jcm.systems</a>.</p>
+		<p>Remember, it's quite boring to see in action! All that'll
+		happen is a redirect to their www-prefixed equivalents, which
+		aren't served by (or anything to do with) the
+		<a href="https://wwwubalizer.com">WWWubalizer</a> ...</p>
+		<h2>Who's running this?</h2>
+		<p><a href="https://twitter.com/jpluscplusm">@jpluscplusm</a>.
+		Please say hi!</p>
+		<h2>I love this! Can you run one for my domains?</h2> I
+		<strong>am</strong> running one for your domains - it's this one!</p>
+		<p>If you actually mean "I need one, but run on a more
+		professional footing, just for my domains", then please
+		get in touch.  I'm sure we can sort something out :-)</p>
+		<h2>Data collection</h2>
+		<p>All this data is used <strong>solely</strong> to help run
+		the service smoothly. None of it is being shared anywhere, and
+		none of it will be exploited in any way at all. Ever. Here's
+		what's collected:</p>
+		<ul>
+			<li><p>The time the request was made</p></li>
+			<li><p>The first 3 octets of the IPv4 address making the request</p></li>
+			<li><p>The domain being requested</p></li>
+			<li><p>The scheme the request used</p></li>
+			<li><p>The HTTP method the request used</p></li>
+			<li><p>The HTTP referer</p></li>
+		</ul>
+		<h3>Why are you collecting the HTTP referer?</h3>
+		<p>The point of this service is to provide an easy way to deal
+			with your domain's users who <strong>type in</strong> your
+			domain, and not those who simply click on a link to
+			your apex domain.  Whilst I'm not blocking (and not
+			planning to block) any requests which contain a referer
+			(which would indicate you've put a link to your naked
+			domain somewhere, intentionally, thereby making this
+			service part of your users' experience), I need to
+			collect this information to figure out if this is a
+			reasonable state of affairs.  Long story short:
+			<strong>where you control the HTML, link to your actual
+				website ("www.your-domain.com"), not your apex
+				domain!</strong></p>
+		<h3>Is this service compliant with the GDPR?</h3>
+		<p>This service:
+		<ul>
+			<li><p>isn't operated as part of any "economic activity",</p></li>
+			<li><p>doesn't store any personally identifiable IP addresses,</p></li>
+			<li><p>doesn't store the HTTP path or query string that
+				any user clicked on, or typed in.</p></li>
+		</ul>
+		<p>It's my understanding that this both puts the service out of
+		scope of the GDPR, and adheres to its rules in case I'm
+		mistaken and it turns out it is in scope.</p>
+	</body>
+</html>
